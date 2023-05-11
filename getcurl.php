@@ -14,23 +14,23 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl); // bentuk JSON
 //echo $response;
 curl_close($curl);
-$response_array = json_decode($response, true); //Mengubah JSON ke Array
+$onscreen_array = json_decode($response, true); //Mengubah JSON ke Array
 $onscreen = '<table class="table" width="100%">
                 <thead>
-                    <th>MESSAGE</th>
-                    <th>STATUS</th>
-                    <th>COMMENT</th>
-                    <th>TAG</th>
-                    <th>SUPPORT</th>
+                    <th>Kode Barang</th>
+                    <th>Nama Barang</th>
+                    <th>Group Barang</th>
+                    <th>Harga Jual</th>
+                    <th>Kuantitas</th>
                 </thead>
             ';
-foreach($response_array as $resp){
+foreach($medicine_array as $resp){
     $onscreen .= '<tr>
-                    <td>'.$resp['message'].'</td>
-                    <td>'.$resp['status'].'</td>
-                    <td>'.$resp['comment'].'</td>
-                    <td>'.$resp['tag'].'</td>
-                    <td>'.$resp['support'].'</td>
+                    <td>'.$medicine['i_code'].'</td>
+                    <td>'.$medicine['i_name'].'</td>
+                    <td>'.$medicine['g_code'].'</td>
+                    <td>'.$medicine['i_sell'].'</td>
+                    <td>'.$medicine['i_qty'].'</td>
                 </tr>';
 }
 $onscreen .= '</table>';
